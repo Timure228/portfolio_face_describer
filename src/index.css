@@ -1,0 +1,154 @@
+:root {
+    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+
+    color-scheme: light dark;
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #242424;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+    font-weight: 500;
+    color: #646cff;
+    text-decoration: inherit;
+}
+
+a:hover {
+    color: #535bf2;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    place-items: center;
+    min-width: 320px;
+    min-height: 100vh;
+    background-color: #26BEF5;
+}
+
+@font-face {
+    font-family: 'jersey-20';
+    src: url("fonts/Jersey20-Regular.ttf");
+}
+
+h1 {
+    position: absolute;
+    top: 0;
+    left: 12px;
+    margin: 0;
+    text-align: left;
+    font-size: 3.2em;
+    font-family: jersey-20;
+    color: black;
+    line-height: 1.1;
+}
+
+#let_me {
+    position: absolute;
+    text-align: right;
+    top: 88px;
+    left: 935px;
+    margin: 0;
+    font-family: jersey-20;
+    font-size: 23px;
+    color: black;
+}
+
+#foot {
+    position: absolute;
+    text-align: right;
+    bottom: 0;
+    right: 10px;
+    margin: 5px;
+    font-family: jersey-20;
+    font-size: 40px;
+    color: black;
+}
+
+span {
+    position: absolute;
+    text-align: right;
+    top: 88px;
+    left: 1077px;
+    font-family: jersey-20;
+    font-size: 23px;
+}
+
+#see {
+    position: absolute;
+    top: -8px;
+    left: 1097px;
+}
+
+
+button {
+    position: absolute;
+    left: 200px;
+    bottom: 100px;
+    border-radius: 17px;
+    border: 1px solid transparent;
+    height: 45px;
+    width: 280px;
+    font-size: 1.7em;
+    font-family: jersey-20;
+    background-color: #C7E359;
+    cursor: pointer;
+    transition: border-color 0.25s;
+}
+
+#fileUpload {
+    position: absolute;
+    left: 255px;
+    bottom: 72px;
+}
+
+#upload {
+    position: absolute;
+    left: 200px;
+    bottom: 100px;
+    border-radius: 17px;
+    border: 1px solid transparent;
+    height: 45px;
+    width: 280px;
+    font-size: 1.7em;
+    font-family: jersey-20;
+    background-color: #C7E359;
+    cursor: pointer;
+    transition: border-color 0.25s;
+}
+
+#face {
+    position: absolute;
+    left: 214px;
+    bottom: 160px;
+}
+
+button:hover {
+    border-color: #646cff;
+}
+
+button:focus,
+button:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        color: #213547;
+        background-color: #ffffff;
+    }
+
+    a:hover {
+        color: #747bff;
+    }
+
+    button {
+        background-color: #f9f9f9;
+    }
+}
