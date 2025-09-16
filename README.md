@@ -1,12 +1,20 @@
-# React + Vite
+# Über das Projekt
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Die Idee kam mir, als ich mein KI-Projekt fertig gemacht habe.
+Dann dachte ich: „Warum soll ich es nicht als Portfolio verwenden?“
+Der Plan war, ich mache eine Webseite, wo ich die Fotos von
+Gesichter auflade und dann eine Beschreibung bekomme.
+Ich habe einen Mockup erstellt, damit ich weiss, wie meine
+Webseite aussehen soll …
 
-Currently, two official plugins are available:
+Aber es gab noch ein anderes Problem: Mein KI-Modell ist in Python
+geschrieben, und React kann keine Python-Dateien ausführen.
+Darum habe ich entschieden, einen separaten Server für Python
+zu erzeugen. Ich habe eine Spring-Boot-Applikation gemacht und
+dort Python-Code ausgeführt und den Output als GET-Request
+zurück an die Webseite gegeben.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Und noch ein Problem: Wie kriegt Spring-Boot-Server die
+Fotos von den Gesichtern? Ich habe einfach mit POST-Request
+die Foto-Datei an Spring-Server geschickt und dort mit gleichem
+Namen überschrieben, damit es nur eine Datei gibt.
