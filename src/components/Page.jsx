@@ -3,31 +3,28 @@ import axios from "axios";
 
 export default function Page() {
     const [uploadedUrl, setUploadedUrl] = useState("");
-    const [output, setOutput] = useState(null);
+    const [output, setOutput] = useState("");
 
     const upload_image = async (e) => {
         e.preventDefault()
+        setOutput("Waiting...")
         // Display the file on the website
         const file = document.getElementById("fileUpload").files[0]
-
         const url = URL.createObjectURL(file);
         setUploadedUrl(url);
         console.log(uploadedUrl)
         // Send file per POST Request to Spring Server
         const formData = new FormData()
         formData.append("file", file)
-
         const resp = await axios.post("http://localhost:8080/api", formData, {
             headers: {
                 "content-type": "multipart/form-data"
             }
         })
         console.log(resp.status)
-
         // Send GET Request to Spring Server
         await get_output()
     }
-
     const get_output = async () => {
         try {
             const response = await fetch("http://localhost:8080/api", {
@@ -43,13 +40,12 @@ export default function Page() {
             setOutput(data);
         } catch (error) {
             if (error instanceof SyntaxError) {
-                alert("Only JPG/JPEG files!");
+                alert("File format incorrect!");
             } else {
                 console.error('ERROR', error);
             }
         }
     }
-
     return (
         <>
             <header>
