@@ -2,6 +2,7 @@ import './App.css'
 import Page from "./components/Page.jsx";
 import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
 import About from "./components/About.jsx";
+import Warum from "./components/Warum.jsx";
 
 function App() {
 
@@ -16,11 +17,15 @@ function App() {
                         <li>
                             <Link to="/about">About</Link>
                         </li>
+                        <li>
+                            <Link to="/warum">Heavy</Link>
+                        </li>
                     </ul>
                 </nav>
                 <Routes>
-                    <Route path="/about" element={<About/>}/>
                     <Route path="/" element={<Page/>}/>
+                    <Route path="warum" element={<Warum/>}/>
+                    <Route path="/about" element={<About/>}/>
                 </Routes>
             </Router>
         </>
