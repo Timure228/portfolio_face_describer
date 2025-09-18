@@ -32,6 +32,12 @@ body {
     background-color: #26BEF5;
 }
 
+#page_body {
+    height: 1200px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
 @font-face {
     font-family: 'jersey-20';
     src: url("fonts/Jersey20-Regular.ttf");
@@ -49,6 +55,16 @@ h1 {
     line-height: 1.1;
 }
 
+#titel {
+    line-height: 2.7rem;
+}
+
+#history_title {
+    position: absolute;
+    top: 604px;
+    left: 552px;
+}
+
 #description {
     text-align: left;
     margin: 0;
@@ -62,7 +78,7 @@ h1 {
     color: #000000;
 }
 
-#total_score {
+#gender {
     position: relative;
     bottom: 42px;
     font-size: 3em;
@@ -101,7 +117,7 @@ h1 {
 }
 
 #foot {
-    position: absolute;
+    position: fixed;
     text-align: right;
     bottom: -8px;
     right: 10px;
@@ -126,16 +142,70 @@ span {
     left: 1097px;
 }
 
+#image_frame {
+    position: absolute;
+    top: 80px;
+    right: 200px;
+}
+
+#amount {
+    position: absolute;
+    color: black;
+    left: 10px;
+    bottom: -120px;
+    font-size: 1.2em;
+    font-family: jersey-20;
+}
+
+#img_history {
+    position: relative;
+    bottom: -300px;
+    margin-right: 10px;
+    left: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#image {
+    margin: 5px;
+}
+
+#react_8bit {
+    position: absolute;
+    top: 300px;
+    right: 539px;
+}
+
+#python_8bit {
+    position: absolute;
+    top: 295px;
+    right: 270px;
+}
+
+#spring_8bit {
+    position: absolute;
+    top: 180px;
+    right: 280px;
+}
+
+hr {
+    position: absolute;
+    top: 650px;
+    left: 0;
+}
+
 ul {
     display: flex;
     gap: 10px;
     list-style: none;
     margin: 0;
     padding: 0;
-    position: absolute;
+    position: fixed;
     bottom: 13px;
     left: 16px;
     width: 160px;
+    z-index: 1;
 }
 
 li {
@@ -162,7 +232,7 @@ button {
     right: 370px;
     top: 236px;
     font-family: jersey-20;
-    color: #06187c;
+    color: #000000;
     font-size: 3em;
 }
 
@@ -187,7 +257,7 @@ button {
 
 #upload {
     position: absolute;
-    left: 199px;
+    left: 201px;
     bottom: 113px;
     border-radius: 13px;
     border: 1px solid transparent;

@@ -18,13 +18,13 @@ function App() {
                             <Link to="/about">About</Link>
                         </li>
                         <li>
-                            <Link to="/warum">Heavy</Link>
+                            <Link to="/heavy">Heavy</Link>
                         </li>
                     </ul>
                 </nav>
                 <Routes>
                     <Route path="/" element={<Page/>}/>
-                    <Route path="warum" element={<Warum/>}/>
+                    <Route path="/heavy" element={<Warum/>}/>
                     <Route path="/about" element={<About/>}/>
                 </Routes>
             </Router>

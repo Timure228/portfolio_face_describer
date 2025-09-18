@@ -7,13 +7,21 @@ export default function Page() {
     const [modelName, setModelName] = useState("model_cnn.keras");
     const [loadingText, setLoadingText] = useState("");
 
+    const [history_url, setHistory_url] = useState([])
+    const [amount_img, setAmount_img] = useState(0);
 
     const upload_image = async (e) => {
         e.preventDefault()
         // Display the file on the website
         const file = document.getElementById("fileUpload").files[0]
         const url = URL.createObjectURL(file);
+        if (history_url.length < 12) {
+            setAmount_img(amount_img + 1)
+            setHistory_url(prev => [...prev, url])
+        }
         setUploadedUrl(url);
+        // Save in history
+        console.log(history_url)
         console.log(uploadedUrl)
         // Send file per POST Request to Spring Server
         const formData = new FormData()
@@ -58,11 +66,11 @@ export default function Page() {
     return (
         <>
             <header>
-                <h1>Face<br/>Describer</h1>
+                <h1 id="titel">Face<br/>Describer</h1>
                 <p id="let_me">Let me see your</p><span style={{color: "red"}}>face...</span>
                 <img id="see" src="/public/see.png" width={180} height={180}/>
             </header>
-            <body>
+            <body id="page_body">
             <img id="face" src={uploadedUrl} width={256} height={300}/>
             <p id="loading">{loadingText}</p>
             <div id="description">
@@ -73,7 +81,7 @@ export default function Page() {
                 <h2>Oval Face: {JSON.stringify(output["oval_face"], null, 2)}</h2>
                 <h2>Young: {JSON.stringify(output["young"], null, 2)}</h2>
                 <br/>
-                <h2 id="total_score">Gender: {JSON.stringify(output["gender"], null, 2)}</h2>
+                <h2 id="gender">Gender: {JSON.stringify(output["gender"], null, 2)}</h2>
             </div>
             <form onSubmit={upload_image}>
                 <input id="fileUpload" type="file" name="fileUpload"/>
@@ -87,7 +95,15 @@ export default function Page() {
                     <option value="MobileNetV3_Small.keras">MobileNetV3Small</option>
                 </select>
             </div>
+            <div>
+                <p id="amount">Amount Images: {amount_img}</p>
+                <h1 id="history_title">History</h1>
+                <div id="img_history">
+                    {history_url.map(url => <img id="image" src={url} width={180} height={220}/>)}
+                </div>
+            </div>
             </body>
+            <hr color="black" width="1300px" size={2}/>
             <footer>
                 <p id="foot">© Tymur Arduch</p>
             </footer>

@@ -3,6 +3,10 @@ export default function About() {
         <>
             <header>
                 <img id="see" src="/public/see.png" width={180} height={180}/>
+                <img id="image_frame" src="/image_frame/pixel_frame.png"/>
+                <img id="react_8bit" src="/image_frame/react_8bit.jpg" width={64} height={64}/>
+                <img id="python_8bit" src="/image_frame/python8bit.png" width={120} height={80}/>
+                <img id="spring_8bit" src="/image_frame/spring8bit.png" width={100} height={80}/>
             </header>
             <div>
                 <h1>Über das Projekt</h1>
@@ -27,6 +31,9 @@ export default function About() {
                     <br/>Namen überschrieben, damit es nur eine Datei gibt.
                 </p>
             </div>
+            <footer>
+                <p id="foot">© Tymur Arduch</p>
+            </footer>
         </>
     );
 }
