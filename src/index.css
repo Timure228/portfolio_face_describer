@@ -73,7 +73,7 @@ h1 {
     font-size: 1.3em;
     position: absolute;
     top: 110px;
-    left: 480px;
+    left: 320px;
     font-family: jersey-20;
     color: #000000;
 }
@@ -83,6 +83,12 @@ h1 {
     bottom: 42px;
     font-size: 3em;
     color: #7c0000;
+}
+
+.image_frame_div {
+    position: absolute;
+    top: -50px;
+    right: -80px;
 }
 
 #about_text {
@@ -99,7 +105,7 @@ h1 {
 #loading {
     position: absolute;
     bottom: 125px;
-    left: 305px;
+    left: 150px;
     color: #000000;
     font-size: 7.8em;
     font-family: jersey-20;
@@ -158,8 +164,8 @@ span {
 }
 
 #img_history {
-    position: relative;
-    bottom: -300px;
+    position: absolute;
+    bottom: -560px;
     margin-right: 10px;
     left: 10px;
     display: flex;
@@ -229,7 +235,7 @@ button {
 
 #select_label {
     position: absolute;
-    right: 370px;
+    right: 315px;
     top: 236px;
     font-family: jersey-20;
     color: #000000;
@@ -239,7 +245,7 @@ button {
 #choose_model {
     position: absolute;
     top: 240px;
-    right: 110px;
+    right: 18px;
     text-align: center;
     margin: 10px 0;
     font-size: 2em;
@@ -250,14 +256,14 @@ button {
 
 #fileUpload {
     position: absolute;
-    left: 255px;
+    left: 95px;
     bottom: 80px;
     color: #124a42;
 }
 
 #upload {
     position: absolute;
-    left: 201px;
+    left: 40px;
     bottom: 113px;
     border-radius: 13px;
     border: 1px solid transparent;
@@ -265,7 +271,7 @@ button {
     width: 280px;
     font-size: 1.7em;
     font-family: jersey-20;
-    color: #b30909;
+    color: #000000;
     background-color: #1d1fac;
     cursor: pointer;
     transition: border-color 0.25s;
@@ -280,9 +286,26 @@ button {
     transform: translate(2px,2px);
 }
 
+#send_feedback {
+    width: 100px;
+    height: 30px;
+    border-radius: 2px;
+    font-size: 1em;
+    background-color: #1d1fac;
+    color: #000000;
+    box-shadow: 2px 2px 0 #000;
+}
+
+#send_feedback:active {
+    background: #1d1fac;
+    color: white;
+    box-shadow: 2px 2px 0 #000;
+    transform: translate(2px,2px);
+}
+
 #face {
     position: absolute;
-    left: 214px;
+    left: 55px;
     bottom: 165px;
     background: repeating-linear-gradient(
             45deg,
@@ -301,6 +324,18 @@ button:focus-visible {
     outline: 4px auto -webkit-focus-ring-color;
 }
 
+#clear {
+    position: absolute;
+    bottom: -105px;
+    right: 10px;
+    background-color: blue;
+    border-radius: 0;
+    font-size: 1em;
+    color: black;
+    width: 100px;
+    height: 30px;
+}
+
 @media (prefers-color-scheme: light) {
     :root {
         color: #213547;
@@ -314,4 +349,60 @@ button:focus-visible {
     button {
         background-color: #f9f9f9;
     }
+}
+
+.checkboxes {
+    position: absolute;
+    top: 127px;
+    left: 750px;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+}
+
+.checkbox-wrapper-49 input[type="checkbox"] {
+    display: none;
+    visibility: hidden;
+}
+
+.checkbox-wrapper-49 {
+    --size: 50px;
+}
+
+.checkbox-wrapper-49 .block {
+    gap: 10px;
+    margin-left: 10px;
+}
+
+.checkbox-wrapper-49 label {
+    width: var(--size);
+    height: calc(var(--size) / 2);
+    box-sizing: border-box;
+    border: 3px solid;
+    float: left;
+    border-radius: 100px;
+    position: relative;
+    cursor: pointer;
+    transition: .3s ease;
+    color: black;
+}
+.checkbox-wrapper-49 input[type=checkbox]:checked + label {
+    background: #55e868;
+}
+.checkbox-wrapper-49 input[type=checkbox]:checked + label:before {
+    left: calc(var(--size) / 2);
+}
+.checkbox-wrapper-49 label:before {
+    transition: .3s ease;
+    content: '';
+    width: calc((var(--size) / 2) - 10px);
+    height: calc((var(--size) / 2) - 10px);
+    position: absolute;
+    background: white;
+    left: 2px;
+    top: 2px;
+    box-sizing: border-box;
+    border: 3px solid;
+    color: black;
+    border-radius: 100px;
 }
