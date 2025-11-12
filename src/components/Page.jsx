@@ -2,39 +2,38 @@ import {useState} from "react";
 import axios from "axios";
 
 export default function Page() {
+    // current image URL
     const [uploadedUrl, setUploadedUrl] = useState("");
     const [output, setOutput] = useState("");
+    // Model choosing
     const [modelName, setModelName] = useState("model_cnn.keras");
     const [loadingText, setLoadingText] = useState("");
-
+    // History staff
     const [history_url, setHistory_url] = useState([])
-    const [amount_img, setAmount_img] = useState(0);
+    const [amount_img, setAmount_img] = useState(0)
 
     const feedback = [0, 0, 0, 0, 0, 0, 0]
 
     const upload_image = async (e) => {
         e.preventDefault()
+        setOutput([])
         // Display the file on the website
         const file = document.getElementById("fileUpload").files[0]
         const url = URL.createObjectURL(file);
-        if (history_url.length < 12) {
-            setAmount_img(amount_img + 1)
-            setHistory_url(prev => [...prev, url])
-        }
         setUploadedUrl(url);
-        // Save in history
-        console.log(history_url)
-        console.log(uploadedUrl)
+        // Image history
+        if (amount_img > 11) { // Delete first value if > 11 Images in history
+            setHistory_url(prev => prev.slice(1))
+        }
+        setHistory_url(prev => [...prev, url]) // Image in history counter
+        setAmount_img(amount_img + 1)
         // Send file per POST Request to Spring Server
         const formData = new FormData()
         formData.append("file", file)
         const resp = await axios.post("http://localhost:8080/api", formData, {
-            headers: {
-                "content-type": "multipart/form-data"
-            }
-        })
+            headers: {"content-type": "multipart/form-data"}})
         console.log(resp.status)
-
+        // Loading dots
         let dots = 0;
         const interval = setInterval(() => {
             dots = (dots + 1) % 4; // 0..3
@@ -51,9 +50,8 @@ export default function Page() {
     }
     const get_output = async () => {
         try {
-            const response = await axios.get("http://localhost:8080/api", {
-                params: {modelName}
-            });
+            const response = await axios.get("http://localhost:8080/api",
+                {params: {modelName}});
 
             const data = await response.data
             setOutput(data);
@@ -81,14 +79,11 @@ export default function Page() {
         feedbackData.append("image", file)
 
         // turn feedback into a .json file
-        const feedbackBlob = new Blob([JSON.stringify(feedback)], { type: "application/json" });
-        const feedbackFile = new File([feedbackBlob], "feedback.json", { type: "application/json" });
+        const feedbackBlob = new Blob([JSON.stringify(feedback)], {type: "application/json"});
+        const feedbackFile = new File([feedbackBlob], "feedback.json", {type: "application/json"});
         feedbackData.append("feedback", feedbackFile)
         const resp = await axios.post("http://localhost:8080/api/feedback", feedbackData, {
-            headers: {
-                "content-type": "multipart/form-data"
-            }
-        })
+            headers: {"content-type": "multipart/form-data"}})
         console.log(resp.status)
 
     }
@@ -169,11 +164,12 @@ export default function Page() {
                 </div>
                 <button id="send_feedback" onClick={(e) => send_feedback(e)}>Send</button>
             </div>
-            <div style={{textAlign: "center", margin: "10px 0"}}>
+            <div id="choosing_model" style={{textAlign: "center", margin: "10px 0"}}>
                 <label id="select_label" htmlFor="choose_model">Model:</label><br/>
                 <select id="choose_model" value={modelName} onChange={(e) => setModelName(e.target.value)}>
-                    <option value="model_cnn.keras">Base Model</option>
-                    <option value="model_cnn_edited.keras">Base Model (10 Attr.)</option>
+                    <option value="model_cnn.keras">Base Model (15'000)</option>
+                    <option value="model_cnn_on_edited.keras">Base Model 10 (15'000)</option>
+                    <option value="model_cnn_on_edited_90.keras">Base Model 10 (90'000)</option>
                     <option value="res_net_34.keras">Res-Net 34 (no work!)</option>
                     <option value="MobileNetV3_Small.keras">MobileNetV3Small</option>
                 </select>
@@ -182,8 +178,8 @@ export default function Page() {
                 <p id="amount">Amount Images: {amount_img}</p>
                 <button id="clear" onClick={(e) => clear(e)}>Clear</button>
                 <h1 id="history_title">History</h1>
-                <div id="img_history">
-                    {history_url.map(url => <img id="image" src={url} width={180} height={220}/>)}
+                <div id="div_history">
+                    {history_url.map(url => <img id="history_image" src={url} width={180} height={220}/>)}
                 </div>
             </div>
             </body>
