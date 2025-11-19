@@ -95,4 +95,24 @@ der erste Link gelöscht, und das Neue am Ende hinzugefügt. So sieht die Geschi
 <img src="readme_img/ge_g.png">
 
 ### Resultat und Evaluation
-#### Wurde das Ziel erreicht?
+#### Wurde das Ziel erreicht?  
+Einerseits habe ich es geschafft Grundnutzen dieser Webseite zu realisieren (Gesichter bewerten),  
+andererseits gibt es noch immer Luft nach oben. Zum Beispiel ich könnte noch Webcamera zugriff implementieren  
+oder die Schritte von Bewertung der Bilder visualisieren (Feature Maps zeigen).  
+Aber grundsätzlich ist das Ziel erreicht.
+
+### Quellenangaben
+Literatur: Keine
+Tutorials: selber gemacht
+Webseiten: https://www.w3schools.com/, https://github.com/
+
+GitHub Repository vom Projekt: https://github.com/Timure228/portfolio_face_describer  
+
+Prompts (ChatGPT):   
+1. `When I scroll to the right, to or bottom the web page ist 
+continuos to go further, but there is nothing to show.`
+`
+2. `How can I hande a CORS error in Spring Boot, when I fetch it from Vite+React.`
+3. `Write a code for loading dots untill the fetch is done.`
+4. `How to send a POST-Request to Spring-Boot and give it to Python.`
+5. 
